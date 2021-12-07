@@ -15,7 +15,7 @@ var server = express();
 var wsServer = require('express-ws')(server);
 // list of client connections:
 var clients = new Array;
-
+var msg="";
 // serve static files from /public:
 server.use('/', express.static('public'));
 
@@ -41,6 +41,7 @@ function handleClient(thisClient, request) {
   // if a client sends a message, print it out:
   function clientResponse(data) {
     console.log(request.connection.remoteAddress + ': ' + data);
+    msg = data;
     broadcast(data);
   }
 
@@ -61,3 +62,6 @@ function broadcast(data) {
 server.listen(process.env.PORT || 3000, serverStart);
 // listen for websocket connections:
 server.ws('/', handleClient);
+server.get('/msg', (req,res)=>{
+  res.send(msg);
+});

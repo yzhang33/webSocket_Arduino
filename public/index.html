@@ -7,15 +7,16 @@
   <title>WebSocket</title>
 </head>
 <body>
-  <h1>WebSocket Client</h1>
- <p> This client connects to a local  WebSocket server. It sends when you press return in the outgoing message box.
+  <h1>Client</h1>
+ <p> This client connects to a local WebSocket server. It sends message to an arduino when you press return in the outgoing message box.
  </p>
   <div>
     Connected to server: <span id="connection">false</span><br>
     <input type="button" id="connectButton" value="Connect"><br>
     Outgoing message: <input type="text" id="outgoing"><br>
-    Incoming message: <span id="incoming"></span><br>
+    Sent message: <span id="incoming"></span><br>
   </div>
-  <p></p>
+  <p>Possible commands to display figures in the arudino:</p>
+  <p>man, hammer, lightning, story, man run, hammer lighting man, hello, star</p>
 </body>
 </html>
